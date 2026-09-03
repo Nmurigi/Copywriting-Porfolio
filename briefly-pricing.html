@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Briefly — Pricing Page | Spec Copy by Anne Murigi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#151A21;
+    --ink-soft:#4E5865;
+    --rule:#D7DCE2;
+    --paper:#FFFFFF;
+    --pale:#EDF0EE;
+    --blue:#22389E;
+    --amber:#C97A19;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter Tight",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.08;margin:0}
+  p{margin:0 0 1em;max-width:62ch}
+  a{color:var(--blue)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+
+  /* framing panel */
+  .frame{background:var(--pale);border-bottom:1px solid var(--rule);padding:34px 0 30px}
+  .frame .wrap{display:grid;grid-template-columns:200px 1fr;gap:36px}
+  .frame h2{font-size:26px;margin-bottom:8px}
+  .frame p{font-size:15px;color:var(--ink-soft);margin-bottom:.7em}
+  .byline{font-size:14px;color:var(--ink-soft);line-height:1.5}
+  .byline strong{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+  .tagbar{font-size:13px;color:var(--ink-soft);margin-top:14px}
+
+  /* mock browser chrome */
+  .mock{border:1px solid var(--rule);border-radius:6px;margin:44px auto 70px;max-width:var(--maxw);overflow:hidden}
+  .chrome{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--rule);background:#FAFBFA}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+  .url{margin-left:10px;font-size:12.5px;color:var(--ink-soft)}
+  .page{padding:0 0 8px}
+  .page .wrap{max-width:900px}
+
+  /* hero */
+  .hero{padding:64px 0 48px;border-bottom:1px solid var(--rule)}
+  .logo{font-family:"Instrument Serif",serif;font-size:23px;letter-spacing:-.02em;margin-bottom:44px}
+  .logo i{color:var(--blue);font-style:italic}
+  .hero h1{font-size:clamp(34px,5.4vw,56px);max-width:16ch;margin-bottom:20px}
+  .hero p{font-size:19px;color:var(--ink-soft)}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 12px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:4px;font-size:15.5px;font-weight:500;text-decoration:none;border:1px solid var(--blue)}
+  .btn-solid{background:var(--blue);color:#fff}
+  .btn-ghost{color:var(--blue);background:transparent}
+  .micro{font-size:14px;color:var(--ink-soft);margin:0}
+  .toggle{display:inline-flex;align-items:center;gap:0;border:1px solid var(--rule);border-radius:4px;margin-top:30px;overflow:hidden;font-size:14.5px}
+  .toggle span{padding:8px 16px}
+  .toggle .on{background:var(--ink);color:#fff}
+  .save{margin-left:12px;font-size:14px;color:var(--amber);font-weight:500}
+
+  /* plans: one shared grid, hairline separated */
+  .plans{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule)}
+  .plan{padding:34px 22px 30px;border-right:1px solid var(--rule)}
+  .plan:last-child{border-right:0}
+  .plan.featured{background:#FBFAF7;box-shadow:inset 0 3px 0 var(--amber)}
+  .plan h3{font-size:24px;margin-bottom:10px}
+  .price{font-size:30px;font-family:"Instrument Serif",serif;line-height:1;margin-bottom:2px}
+  .per{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px}
+  .flag{display:inline-block;font-size:12.5px;color:var(--amber);font-weight:600;margin-bottom:8px}
+  .plan p.who{font-size:14.5px;color:var(--ink-soft);margin-bottom:14px}
+  .plan ul{list-style:none;padding:0;margin:0 0 22px;font-size:14.5px}
+  .plan li{padding:6px 0 6px 17px;position:relative;line-height:1.45}
+  .plan li::before{content:"";position:absolute;left:0;top:13px;width:7px;height:1.5px;background:var(--amber)}
+  .plan .inc{font-size:13.5px;color:var(--ink-soft);margin-bottom:6px}
+  .plan .btn{padding:9px 14px;font-size:14.5px;width:100%;text-align:center}
+
+  /* generic section */
+  section.blk{padding:52px 0;border-bottom:1px solid var(--rule)}
+  section.blk h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:16px;max-width:20ch}
+
+  .clarity{background:var(--pale)}
+  .clarity h2{max-width:24ch}
+  .clarity p{font-size:17.5px}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:22px}
+  caption{text-align:left;color:var(--ink-soft);font-size:15px;padding-bottom:14px;max-width:60ch}
+  th,td{padding:11px 10px;border-bottom:1px solid var(--rule);text-align:left}
+  thead th{font-weight:600;border-bottom:1.5px solid var(--ink)}
+  tbody th{font-weight:400;color:var(--ink-soft)}
+  td{text-align:center}
+  th:first-child,td:first-child{text-align:left}
+
+  .obj{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;margin-top:8px}
+  .obj h3{font-size:21px;margin-bottom:10px;font-family:"Inter Tight",sans-serif;font-weight:600;letter-spacing:0;line-height:1.3}
+  .obj p{font-size:15.5px;color:var(--ink-soft);margin-bottom:.8em}
+
+  details{border-bottom:1px solid var(--rule);padding:14px 0}
+  summary{cursor:pointer;font-weight:500;font-size:16.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--ink-soft)}
+  details[open] summary::after{content:"–"}
+  details p{margin:12px 0 2px;font-size:15.5px;color:var(--ink-soft)}
+
+  .close{padding:60px 0 66px;text-align:left}
+  .close h2{font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+
+  footer.credit{padding:30px 0 60px;font-size:14px;color:var(--ink-soft)}
+
+  @media (max-width:860px){
+    .frame .wrap{grid-template-columns:1fr;gap:18px}
+    .plans{grid-template-columns:1fr 1fr}
+    .plan{border-bottom:1px solid var(--rule)}
+    .plan:nth-child(2){border-right:0}
+    .obj{grid-template-columns:1fr;gap:26px}
+    .mock{margin:28px 16px 50px;border-radius:4px}
+    table{font-size:13.5px}
+    th,td{padding:9px 6px}
+  }
+  @media (max-width:560px){
+    .plans{grid-template-columns:1fr}
+    .plan{border-right:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="wrap">
+    <div class="byline">
+      <strong>Spec piece</strong>
+      Anne Murigi<br>Content Writer &amp; Copywriter<br>
+      <span class="tagbar">B2B SaaS · Pricing page · Fictional brand</span>
+    </div>
+    <div>
+      <h2>Briefly — pricing page</h2>
+      <p><strong>The product.</strong> Briefly turns meetings, calls, and client chats into assigned tasks, decisions, and follow-ups.</p>
+      <p><strong>The buyer.</strong> Account leads at agencies running 15 to 60 client relationships at once. They sit in a lot of calls and they carry the blame when something agreed on a Tuesday call never reaches anyone's queue.</p>
+      <p><strong>The problem this page solves.</strong> AI notetakers have trained buyers to expect three traps: minute caps that run out mid-month, per-seat pricing that punishes you for inviting a colleague to one call, and recording consent problems on client-facing meetings. A pricing page in this category that doesn't answer all three loses the reader before the plan cards.</p>
+      <p><strong>What the copy does.</strong> Removes the meter anxiety in the first line, prices on people instead of usage, defines "user" before anyone has to guess, and handles the client-consent objection in the open rather than burying it in a security page nobody clicks.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mock">
+  <div class="chrome">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span class="url">briefly.com/pricing</span>
+  </div>
+
+  <div class="page">
+
+    <div class="hero">
+      <div class="wrap">
+        <div class="logo">Brief<i>ly</i></div>
+        <h1>Record every meeting. No minute limits</h1>
+        <p>You pay by the seat, not by the hour. Your bill changes when your team does and at no other time.</p>
+        <p>No per-recording charges and no overage invoice in the last week of the quarter. Pick a plan based on how many people need their own workspace.</p>
+        <div class="btns">
+          <a class="btn btn-solid" href="#">Start free trial</a>
+          <a class="btn btn-ghost" href="#">Book a walkthrough</a>
+        </div>
+        <p class="micro">14 days, no card. Cancel from inside your account in one click.</p>
+        <div>
+          <span class="toggle"><span class="on">Monthly</span><span>Annual</span></span>
+          <span class="save">Save 2 months</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Starter</h3>
+        <div class="price">$12</div>
+        <div class="per">per user, per month</div>
+        <p class="who">For freelancers and small teams who want their notes and actions in one place.</p>
+        <ul>
+          <li>Unlimited recordings and transcripts</li>
+          <li>Automatic task extraction with owners and dates</li>
+          <li>Zoom, Google Meet, and Teams</li>
+          <li>90 days of history</li>
+          <li>Email and calendar delivery of every recap</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Start free trial</a>
+      </div>
+
+      <div class="plan featured">
+        <span class="flag">Most popular</span>
+        <h3>Team</h3>
+        <div class="price">$24</div>
+        <div class="per">per user, per month</div>
+        <p class="who">For teams who need the follow-ups to reach the tools where work actually happens.</p>
+        <div class="inc">Everything in Starter, plus:</div>
+        <ul>
+          <li>Two-way sync with Asana, ClickUp, Jira, Linear, and Notion</li>
+          <li>Shared workspaces with role permissions</li>
+          <li>Decision log across every meeting in a project</li>
+          <li>Unlimited history</li>
+          <li>Slack recap posts to the channel of your choice</li>
+          <li>Custom recap templates</li>
+        </ul>
+        <a class="btn btn-solid" href="#">Start free trial</a>
+      </div>
+
+      <div class="plan">
+        <h3>Agency</h3>
+        <div class="price">$39</div>
+        <div class="per">per user, per month</div>
+        <p class="who">For client services teams who bill against what was agreed on the call.</p>
+        <div class="inc">Everything in Team, plus:</div>
+        <ul>
+          <li>Client workspaces with separated data and access</li>
+          <li>Billable time tagging by client and project</li>
+          <li>Consent capture and audit trail for external attendees</li>
+          <li>Scope alerts when a call adds work you haven't agreed to bill for</li>
+          <li>White-labeled recaps sent from your own domain</li>
+          <li>Single sign-on</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Start free trial</a>
+      </div>
+
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+        <div class="per">billed annually</div>
+        <p class="who">For companies whose legal and IT teams have to sign off before you can buy.</p>
+        <div class="inc">Everything in Agency, plus:</div>
+        <ul>
+          <li>EU or US data residency</li>
+          <li>Custom retention and deletion policies</li>
+          <li>SCIM provisioning</li>
+          <li>Named implementation lead and quarterly reviews</li>
+          <li>Security review support and custom DPA</li>
+        </ul>
+        <a class="btn btn-ghost" href="#">Talk to sales</a>
+      </div>
+    </div>
+
+    <section class="blk clarity">
+      <div class="wrap">
+        <h2>You only pay for your team. Guests are free</h2>
+        <p>Invite a client, a contractor, or a colleague from another department to a single call and you won't be charged for them. They can read the recap, comment on it, and mark their own tasks complete without an account.</p>
+        <p>You pay for the people who run meetings and own the follow-ups. Usually that's a fraction of the people sitting in them.</p>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="wrap">
+        <table>
+          <caption>The full breakdown, for anyone who wants to check the detail before they talk to their finance lead.</caption>
+          <thead>
+            <tr><th scope="col">&nbsp;</th><th scope="col">Starter</th><th scope="col">Team</th><th scope="col">Agency</th><th scope="col">Enterprise</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Meetings per month</th><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+            <tr><th scope="row">Guest attendees</th><td>Free</td><td>Free</td><td>Free</td><td>Free</td></tr>
+            <tr><th scope="row">History</th><td>90 days</td><td>Unlimited</td><td>Unlimited</td><td>Custom</td></tr>
+            <tr><th scope="row">Task sync to project tools</th><td>–</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Decision log</th><td>–</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Client workspaces</th><td>–</td><td>–</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Billable time tagging</th><td>–</td><td>–</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Consent audit trail</th><td>–</td><td>–</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">Scope-change alerts</th><td>–</td><td>–</td><td>Yes</td><td>Yes</td></tr>
+            <tr><th scope="row">SSO and SCIM</th><td>–</td><td>–</td><td>SSO</td><td>SSO + SCIM</td></tr>
+            <tr><th scope="row">Data residency</th><td>US</td><td>US</td><td>US or EU</td><td>US or EU</td></tr>
+            <tr><th scope="row">Support</th><td>Email</td><td>Email and chat</td><td>Priority and Slack</td><td>Named lead</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="wrap">
+        <div class="obj">
+          <div>
+            <h3>Your clients will know they're being recorded</h3>
+            <p>Briefly announces itself when it joins and asks your client to agree before it records anything. If someone declines, Briefly doesn't record the call.</p>
+            <p>Every answer is time-stamped and saved with the meeting, so you have a record if a client ever asks. On the Agency plan you can export the trail for a single client or for the whole account.</p>
+          </div>
+          <div>
+            <h3>Moving off your current notetaker takes an afternoon</h3>
+            <p>Import your existing transcripts and recaps from Otter, Fireflies, Fathom, or Grain, and Briefly will index them alongside the meetings it records itself. Your searchable history doesn't restart on day one.</p>
+            <p>If you're mid-contract elsewhere, we'll credit the remaining months of that subscription against your first Briefly invoice, up to six months. Send us the renewal notice and we'll apply it.</p>
+          </div>
+          <div>
+            <h3>Nobody has to change how they work</h3>
+            <p>Briefly joins the calendar invite you already created and posts the recap where your team already reads things. There's no new tab to check after every call or another daily habit to build.</p>
+            <p>Your team reviews each task before it reaches the project board, so people stay in control of what gets assigned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blk">
+      <div class="wrap">
+        <h2>Questions that come up before people buy</h2>
+        <details open>
+          <summary>What happens when I add someone mid-month?</summary>
+          <p>You pay for the days left in the month, not the full month. Remove someone and the credit lands on your next invoice without you asking.</p>
+        </details>
+        <details>
+          <summary>Can I mix plans across my company?</summary>
+          <p>Yes. Client services can sit on Agency while your internal marketing team sits on Team, under one bill and one admin console.</p>
+        </details>
+        <details>
+          <summary>Do you train models on our meetings?</summary>
+          <p>No. Your recordings, transcripts, and tasks are never used to train any model, ours or a third party's. This holds on every plan, including the free trial.</p>
+        </details>
+        <details>
+          <summary>How long do you keep recordings?</summary>
+          <p>Starter keeps 90 days. Team and Agency keep everything until you delete it. Enterprise sets its own retention rules, including automatic deletion at 30, 60, or 180 days.</p>
+        </details>
+        <details>
+          <summary>What if the transcript gets something wrong?</summary>
+          <p>Every task and decision links back to the moment in the recording it came from. Click the timestamp to hear the sentence, then fix it in place.</p>
+        </details>
+        <details>
+          <summary>Can I charge Briefly back to my clients?</summary>
+          <p>Yes. Tag each workspace to a client and export a monthly cost breakdown by account, ready to drop into your invoice or your retainer report.</p>
+        </details>
+        <details>
+          <summary>Can I cancel?</summary>
+          <p>At any time, from inside your account. On an annual plan, we refund the months you haven't used.</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="close">
+      <div class="wrap">
+        <h2>Try it on this week's calls</h2>
+        <p>Connect your calendar and Briefly will start recording the meetings you choose. Nothing changes for the people you're meeting except a short consent prompt.</p>
+        <div class="btns"><a class="btn btn-solid" href="#">Start free trial</a></div>
+        <p class="micro">14 days. No card. Your data leaves with you if you go.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="credit">
+  <div class="wrap">Spec copy created for portfolio purposes. Briefly is a fictional company, and its pricing, features, and integrations are fictional. Written by Anne Murigi.</div>
+</footer>
+
+</body>
+</html>

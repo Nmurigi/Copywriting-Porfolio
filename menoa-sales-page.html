@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menoa — Sales Page | Spec Copy by Anne Murigi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241C22;
+    --body:#5B5158;
+    --paper:#FDFCFB;
+    --mist:#F1EDE8;
+    --deep:#1E4C46;
+    --deep-soft:#B9CFC8;
+    --accent:#1F5F55;
+    --rule:#DCD5CF;
+    --maxw:1040px;
+    --read:660px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--body);
+    font-family:"Inter Tight",system-ui,-apple-system,Segoe UI,sans-serif;
+    font-size:17.5px;line-height:1.65;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .read{max-width:var(--read)}
+  h1,h2{font-family:"Fraunces",Georgia,serif;font-weight:400;color:var(--ink);line-height:1.12;letter-spacing:-.005em;margin:0}
+  h3{font-family:"Inter Tight",sans-serif;font-weight:600;color:var(--ink);margin:0;line-height:1.35}
+  p{margin:0 0 1.05em;max-width:62ch}
+  a{color:var(--accent)}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+  /* portfolio framing panel */
+  .frame{background:#EFEFEC;border-bottom:1px solid var(--rule);padding:36px 0 32px}
+  .frame .wrap{display:grid;grid-template-columns:200px 1fr;gap:36px;max-width:var(--maxw)}
+  .frame h2{font-size:27px;margin-bottom:10px}
+  .frame p{font-size:15px;margin-bottom:.7em}
+  .byline{font-size:14px;line-height:1.5}
+  .byline strong{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
+  .tagbar{font-size:13px;display:block;margin-top:14px}
+
+  /* mock */
+  .mock{border:1px solid var(--rule);border-radius:6px;margin:44px auto 66px;max-width:var(--maxw);overflow:hidden;background:var(--paper)}
+  .chrome{display:flex;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid var(--rule);background:#FAFAF8}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+  .url{margin-left:10px;font-size:12.5px}
+  .mock .wrap{max-width:840px}
+
+  /* hero */
+  .hero{padding:62px 0 58px;background:var(--mist)}
+  .logo{font-family:"Fraunces",serif;font-size:22px;color:var(--ink);letter-spacing:.02em;margin-bottom:48px}
+  .hero h1{font-size:clamp(36px,6vw,58px);max-width:13ch;margin-bottom:22px;font-weight:300}
+  .lede{font-size:20px;max-width:46ch;margin-bottom:28px}
+  .cta{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:500;font-size:16.5px;padding:14px 30px;border-radius:2px}
+  .under{font-size:14.5px;margin:14px 0 0}
+  .trust{margin-top:34px;padding-top:18px;border-top:1px solid var(--rule);font-size:14.5px;max-width:44ch}
+
+  section{padding:56px 0}
+  .tint{background:var(--mist)}
+  .deep{background:var(--deep);color:var(--deep-soft)}
+  .deep h2{color:#FFFFFF}
+  .deep .cta{background:#FFFFFF;color:var(--deep)}
+  .deep .under{color:var(--deep-soft)}
+  .deep .rule-top{border-color:rgba(255,255,255,.22)}
+  section h2{font-size:clamp(27px,3.6vw,36px);margin-bottom:20px;max-width:19ch;font-weight:400}
+
+  .recog p{font-size:18.5px}
+
+  /* steps */
+  .steps{counter-reset:s;margin-top:10px;border-top:1px solid var(--rule)}
+  .step{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--rule)}
+  .step::before{content:counter(s);font-family:"Fraunces",serif;font-size:27px;color:var(--deep);line-height:1;opacity:.85}
+  .step h3{font-size:19px;margin-bottom:6px}
+  .step p{margin:0;font-size:16.5px}
+
+  /* included */
+  .cols{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;margin-top:6px}
+  .cols h3{font-size:16px;margin-bottom:12px}
+  ul.list{list-style:none;padding:0;margin:0;font-size:16.5px}
+  ul.list li{padding:9px 0 9px 20px;position:relative;border-bottom:1px solid var(--rule)}
+  ul.list li::before{content:"";position:absolute;left:0;top:19px;width:8px;height:1.5px;background:var(--accent)}
+  .note{font-size:16px;margin-top:18px}
+
+  /* placeholder proof */
+  .placeholder{border:1.5px dashed var(--rule);background:var(--mist);padding:38px 30px;text-align:center;border-radius:4px}
+  .placeholder h2{font-size:25px;margin:0 auto 10px;max-width:none}
+  .placeholder p{margin:0 auto;font-size:15.5px;max-width:52ch;font-style:italic}
+
+  .obj{margin-bottom:34px}
+  .obj:last-child{margin-bottom:0}
+  .obj h3{font-size:21px;margin-bottom:10px}
+
+  details{border-bottom:1px solid var(--rule);padding:15px 0}
+  summary{cursor:pointer;font-weight:500;font-size:17px;color:var(--ink);list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--accent)}
+  details[open] summary::after{content:"–"}
+  details p{margin:12px 0 2px;font-size:16.5px}
+
+  .close h2{font-size:clamp(29px,4.2vw,42px);max-width:16ch}
+
+  footer.credit{padding:32px 0 64px;font-size:14px}
+
+  @media (max-width:820px){
+    .frame .wrap{grid-template-columns:1fr;gap:18px}
+    .cols{grid-template-columns:1fr;gap:26px}
+    .mock{margin:26px 14px 46px}
+    section{padding:44px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="wrap">
+    <div class="byline">
+      <strong>Spec piece</strong>
+      Anne Murigi<br>Content Writer &amp; Copywriter
+      <span class="tagbar">Consumer health · Sales page · Fictional brand</span>
+    </div>
+    <div>
+      <h2>Menoa — sales page</h2>
+      <p><strong>The service.</strong> Menoa connects women in perimenopause and menopause with licensed clinicians online. Care can include virtual visits, support between appointments, lab tests when needed, and prescription treatment when a clinician finds it right for you. Menoa doesn't sell supplements or promise a cure.</p>
+      <p><strong>The reader.</strong> A woman between 42 and 55 who has already spoken to her regular doctor about this at least once, and came away without much of a plan. She's been awake since 3am, and she's doing this research on her phone.</p>
+      <p><strong>The problem this page solves.</strong> Menopause marketing tends to fail in one of two directions. Supplement brands over-promise until the reader stops believing anything that sounds excited, while clinical services under-sell until she can't work out what she'd actually be paying for. This page has to sound like a clinician who takes her seriously, and it still has to sell a subscription.</p>
+      <p><strong>What the copy does.</strong> It opens on recognition rather than a symptom list, because she already knows her symptoms and doesn't need them read back to her. It says plainly what's included and what it costs, since anything vague reads as a trap in health services. It names the limits of what Menoa can do, which earns more trust than a testimonial would, and it keeps every claim to what the service provides rather than what it will fix.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mock">
+  <div class="chrome">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span class="url">menoa.com/care</span>
+  </div>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="logo">MENOA</div>
+      <h1>Your body changed. Your care hasn't</h1>
+      <p class="lede">Menoa connects you with clinicians who focus on perimenopause and menopause care. Meet online for 45 minutes, then stay in touch as your care changes.</p>
+      <a class="cta" href="#">Book your first visit</a>
+      <p class="under">$45 a month once you book. No charge to complete the intake. Cancel any time.</p>
+      <p class="trust">Licensed clinicians who work in menopause care, available in all 50 states.</p>
+    </div>
+  </div>
+
+  <section class="recog">
+    <div class="wrap read">
+      <h2>You've already been told you're fine</h2>
+      <p>Maybe your tests came back normal. Maybe you were told this is part of getting older. Maybe you left with a prescription for something you didn't go in to ask about.</p>
+      <p>But you're still waking at 3am. You're still keeping a spare shirt at work. And you're still trying to work out what changed.</p>
+      <p>So you manage it on your own, sleeping with a fan on and avoiding anything important on the days you know will be hard. That works for a while, until the day it doesn't.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap read">
+      <h2>This is where a menopause clinician starts</h2>
+      <p>There's a lot going on at once during this transition, and it rarely arrives in a tidy order. Hot flashes and night sweats, waking at 3am and staying awake, cycles that change length or disappear and come back, joint aches that showed up without an injury, brain fog in meetings you used to run without notes, and anxiety with nothing attached to it.</p>
+      <p>Some symptoms may be linked to menopause, while others can have another cause. That's why your clinician starts with your health history instead of assuming menopause explains everything.</p>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap read">
+      <h2>Start with 10 minutes and tell us what's been going on</h2>
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>Tell us what's going on</h3>
+            <p>A short intake covering your health history, your cycle, any medications you take, and what's affecting you most right now. You don't need an account or a card to finish it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Meet your clinician for 45 minutes</h3>
+            <p>A real appointment by video at a time you choose, long enough to go through your history properly rather than skimming it.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Get a plan you understand</h3>
+            <p>Your clinician talks through the options that may suit you, including the ones they wouldn't recommend for you and why, along with lab tests or prescription treatment if those are appropriate.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>Adjust as you go</h3>
+            <p>Message your clinician between visits when something changes or a question comes up. Getting a plan right usually takes a few adjustments, and that follow-up is the part most care leaves out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>$45 a month covers your care, not only your appointment</h2>
+      <div class="cols">
+        <div>
+          <h3>Included every month</h3>
+          <ul class="list">
+            <li>Messaging with your care team, with no limit and no charge per message</li>
+            <li>Visits with your clinician whenever your plan needs to change</li>
+            <li>Prescription management and refills</li>
+            <li>Lab orders and review when your clinician recommends them</li>
+            <li>Your full medical record, downloadable at any time</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Billed separately</h3>
+          <ul class="list">
+            <li>Prescription and pharmacy costs</li>
+            <li>Lab costs when tests are ordered</li>
+          </ul>
+          <p class="note">There's no joining fee and no per-visit charge on top of the $45.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="deep">
+    <div class="wrap read">
+      <h2>Who you'll be talking to</h2>
+      <p>Every Menoa clinician is licensed in your state and works in menopause care, so you won't spend your appointment explaining what perimenopause is.</p>
+      <p>You keep the same clinician as your care goes on, and you can ask to change if you'd rather see someone else.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap read">
+      <div class="placeholder">
+        <h2>Patient stories would appear here</h2>
+        <p>For a live campaign, this section would use verified patient testimonials supplied and approved by the client.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap read">
+      <h2>Menoa isn't right for everyone</h2>
+      <p>Some health needs require in-person care or a different kind of specialist. Your intake helps us check that before you book, and your clinician will tell you if another type of care would suit you better.</p>
+      <p>We also don't sell supplements and we won't recommend one. If your clinician thinks a supplement could help, they'll name it and you can buy it anywhere you like.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap read">
+      <div class="obj">
+        <h3>You may have questions about hormone therapy</h3>
+        <p>Your clinician will talk through the options that may suit your health history, along with the risks and benefits that apply to you. Hormone therapy isn't right for everyone, and you won't be pushed toward it.</p>
+        <p>The aim is to give you enough information to make the choice with your clinician.</p>
+      </div>
+      <div class="obj">
+        <h3>You shouldn't have to take a subscription on faith</h3>
+        <p>If Menoa isn't useful to you, cancel from your account and you won't be charged again. Your records download in full, so you can take them to any doctor you choose.</p>
+        <p>Your first visit is the real test, and it runs 45 minutes because that's how long the conversation takes. You'll know by the end of it what kind of care you've bought.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap read">
+      <h2>Questions women ask before they book</h2>
+      <details open>
+        <summary>Do you take insurance?</summary>
+        <p>The $45 monthly membership is paid directly and isn't billed to insurance, though prescriptions and lab work usually can be. We provide itemized receipts if you have an FSA or HSA account.</p>
+      </details>
+      <details>
+        <summary>Can I keep my own doctor?</summary>
+        <p>Yes, and we'd encourage it. With your permission we'll send your visit notes and any lab results to your primary care doctor.</p>
+      </details>
+      <details>
+        <summary>What if I don't need a prescription?</summary>
+        <p>Plenty of patients don't. Your clinician will talk through other options with you if that's the better route for your situation.</p>
+      </details>
+      <details>
+        <summary>Is this available in my state?</summary>
+        <p>Menoa is licensed in all 50 states, and your intake confirms your location before you book.</p>
+      </details>
+      <details>
+        <summary>How long until something changes?</summary>
+        <p>That depends on what you're treating and how your body responds, so your clinician will give you a realistic timeline at your first visit rather than a promise. Most plans need at least one adjustment before they settle.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="deep close">
+    <div class="wrap read">
+      <h2>Start with the intake. It takes 10 minutes</h2>
+      <p>You don't need an account or a card to complete it. At the end you'll see the clinicians available in your state and what they specialize in, and you can decide from there.</p>
+      <a class="cta" href="#">Start the intake</a>
+      <p class="under">Free to start. $45 a month once you book your first visit. Cancel any time.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer class="credit">
+  <div class="wrap">Spec copy created for portfolio purposes. Menoa is a fictional company, and all service details, prices, clinicians, and features shown here are part of the spec concept. Nothing on this page is medical information. Written by Anne Murigi.</div>
+</footer>
+
+</body>
+</html>
